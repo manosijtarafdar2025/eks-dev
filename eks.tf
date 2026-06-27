@@ -5,5 +5,5 @@ module "eks-dev" {
   kubernetes_version       = var.kubernetes_version
   environment              = var.environment
   tags                     = var.tags
-  subnet_ids               = [aws_subnet.eks_private_subnet]
+  subnet_ids               = ["${aws_subnet.eks_private_subnet}"]
 }
