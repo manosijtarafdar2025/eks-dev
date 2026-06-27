@@ -22,3 +22,8 @@ variable "tags" {
   description = "Default tags"
   type = map(any)
 }
+
+variable "subnet_ids" {
+  description = "EKS cluster subnet ids"
+  type = list(string)
+}
