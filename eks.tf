@@ -4,6 +4,9 @@ module "eks-dev" {
   name               = var.name
   kubernetes_version = var.kubernetes_version
   environment        = var.environment
-  subnet_ids         = [aws_subnet.eks_private_subnet.id]
+  subnet_ids         = [
+    aws_subnet.eks_private_subnet_a.id,
+    aws_subnet.eks_private_subnet_b.id,
+  ]
   tags               = var.tags
 }
