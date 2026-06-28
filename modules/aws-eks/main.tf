@@ -8,6 +8,7 @@ module "eks" {
   # Subnet Configuration
   subnet_ids               = var.subnet_ids
   # Security Group Configuration
+  create_security_group    = false
   security_group_id        = var.cluster_security_group
   tags                     = var.tags
 }
