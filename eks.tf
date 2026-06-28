@@ -8,6 +8,6 @@ module "eks-dev" {
     aws_subnet.eks_private_subnet_a.id,
     aws_subnet.eks_private_subnet_b.id,
   ]
-  cluster_security_group = aws_security_group.eks_cluster_sg.id
+  # cluster_security_group = aws_security_group.eks_cluster_sg.id
   tags                   = var.tags
 }
