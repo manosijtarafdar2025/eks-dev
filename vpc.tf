@@ -1,3 +1,8 @@
+# Locals
+locals {
+  cluster_name = "${var.name}-${var.environment}"
+}
+
 # VPC
 resource "aws_vpc" "eks_vpc" {
   cidr_block           = var.eks_vpc_cidr
@@ -15,7 +20,7 @@ resource "aws_subnet" "eks_public_subnet_a" {
   tags                    = {
     Name                     = "eks-public-a"
     "kubernetes.io/role/elb" = "1"
-    "kubernetes.io/cluster/eks-dev" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
   }         
 }
 
@@ -27,7 +32,7 @@ resource "aws_subnet" "eks_public_subnet_b" {
   tags                    = {
     Name                     = "eks-public-b"
     "kubernetes.io/role/elb" = "1"
-    "kubernetes.io/cluster/eks-dev" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
   } 
 }
 
@@ -40,7 +45,7 @@ resource "aws_subnet" "eks_private_subnet_a" {
   tags                    = {
     Name                              = "eks-private-a"
     "kubernetes.io/role/internal-elb" = "1"
-    "kubernetes.io/cluster/eks-dev" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
   }
 }
 
@@ -52,7 +57,7 @@ resource "aws_subnet" "eks_private_subnet_b" {
   tags                    = {
     Name                              = "eks-private-b"
     "kubernetes.io/role/internal-elb" = "1"
-    "kubernetes.io/cluster/eks-dev" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
   }
 }
 
