@@ -10,7 +10,7 @@ module "eks" {
   # Security Groups
   create_security_group         = false
   create_node_security_group    = false
-  security_group_id             = aws_security_group.cluster_sg.id
+  additional_security_group_ids = [aws_security_group.cluster_sg.id]
   node_security_group_id        = aws_security_group.worker_node_sg.id
   # Subnet Configuration
   subnet_ids               = var.subnet_ids
