@@ -27,3 +27,7 @@ variable "subnet_ids" {
   description = "EKS cluster subnet ids"
   type = list(string)
 }
+
+variable "cluster_security_group" {
+  description = "Default security group of the cluster"
+}
