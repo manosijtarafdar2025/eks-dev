@@ -30,5 +30,4 @@ variable "subnet_ids" {
 
 variable "cluster_security_group" {
   description = "Default security group of the cluster"
-  type = string
 }
