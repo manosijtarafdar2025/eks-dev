@@ -16,7 +16,7 @@ variable "environment" {
 variable "create" {
   description = "Create EKS cluster and related resources"
   type = bool
-  default = true
+  default = false
 }
 
 variable "name" {
